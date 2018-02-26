@@ -11,7 +11,7 @@ Documentation=https://github.com/coreos
 [Service]
 Type=notify
 WorkingDirectory=/var/lib/etcd/
-ExecStart=/root/local/bin/etcd \\
+ExecStart=/usr/bin/etcd \\
 --name=${NODE_NAME} \\
 --cert-file=/etc/etcd/ssl/etcd.pem \\
 --key-file=/etc/etcd/ssl/etcd-key.pem \\
