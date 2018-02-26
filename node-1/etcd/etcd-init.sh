@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # 当前部署的机器名称(随便定义，只要能区分不同机器即可)
-export NODE_NAME=etcd-host0
+export NODE_NAME=etcd-host1
 
 # 当前部署的机器 IP
-export NODE_IP=192.168.207.128
+export NODE_IP=192.168.207.129
 
 # etcd 集群所有机器 IP
 export NODE_IPS="192.168.207.128 192.168.207.129 192.168.207.131"
