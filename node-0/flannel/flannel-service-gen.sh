@@ -10,6 +10,7 @@ Before=docker.service
 [Service]
 Type=notify
 ExecStart=/usr/bin/flanneld \\
+--name=$ETCD_ENDPOINTS \\
 -etcd-cafile=/etc/kubernetes/ssl/ca.pem \\
 -etcd-certfile=/etc/flanneld/ssl/flanneld.pem \\
 -etcd-keyfile=/etc/flanneld/ssl/flanneld-key.pem \\
