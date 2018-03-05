@@ -16,15 +16,15 @@ ExecStart=/usr/bin/flanneld \\
 -etcd-keyfile=/etc/flanneld/ssl/flanneld-key.pem \\
 -etcd-endpoints=$ETCD_ENDPOINTS \\
 -etcd-prefix=$FLANNEL_ETCD_PREFIX
-ExecStartPost=/usr/bin/mk-docker-opts.sh -k DOCKER_NETWOR
-K_OPTIONS -d /run/flannel/docker
+ExecStartPost=/usr/bin/mk-docker-opts.sh -k DOCKER_NETWORK_OPTIONS -d /run/flannel/docker
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 RequiredBy=docker.service
 EOF
-#cp flanneld.service /etc/systemd/system/
-#systemctl daemon-reload
-#systemctl enable flanneld
-#systemctl start flanneld
-#systemctl status flanneld
+
+cp flanneld.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable flanneld
+systemctl start flanneld
+systemctl status flanneld
