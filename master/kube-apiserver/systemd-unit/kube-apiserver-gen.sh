@@ -9,7 +9,7 @@ ExecStart=/usr/bin/kube-apiserver \\
 --admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,ResourceQuota \\
 --advertise-address=${MASTER_IP} \\
 --bind-address=${MASTER_IP} \\
---insecure-bind-address=127.0.0.1 \\
+--insecure-bind-address=${MASTER_IP} \\
 --authorization-mode=RBAC \\
 --runtime-config=rbac.authorization.k8s.io/v1alpha1 \\
 --kubelet-https=true \\
@@ -43,7 +43,7 @@ LimitNOFILE=65536
 WantedBy=multi-user.target
 EOF
 
-cp kube-apiserver.service /etc/systemd/system/
+mv kube-apiserver.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable kube-apiserver
 systemctl start kube-apiserver
